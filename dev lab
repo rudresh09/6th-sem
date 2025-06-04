@@ -1,0 +1,70 @@
+PROGRAM 1
+sudo apt update  
+sudo apt install openjdk-17-jdk  
+sudo apt install eclipse  
+sudo apt install maven -y  
+mvn -version  
+wget -c https://services.gradle.org/distributions/gradle-7.4.2-bin.zip -P /tmp  
+sudo apt install unzip  
+unzip -d /opt/gradle /tmp/gradle-*.zip  
+ls /opt/gradle  
+sudo nano /etc/profile.d/gradle.sh  
+chmod +x /etc/profile.d/gradle.sh  
+source /etc/profile.d/gradle.sh  
+gradle -v 
+
+
+PROGRAM 2
+# In Eclipse Maven build
+Goal: package
+
+
+PROGRAM 3
+mkdir pgm3  
+cd pgm3  
+gradle init  
+gradlew run  
+tree  
+
+
+PROGRAM 4
+# After creating Maven project
+gradle init  
+gradle build  
+gradle clean build  
+gradle run  
+
+
+PROGRAM 7
+sudo adduser [username]  
+sudo usermod -aG sudo [username]  
+sudo su [username]  
+ssh-keygen  
+ssh-copy-id [username]@[remote-host]  
+sudo apt update  
+sudo apt install ansible -y  
+ansible --version  
+sudo mkdir -p /etc/ansible  
+sudo nano /etc/ansible/hosts  
+ansible-inventory --list -y  
+sudo ansible all -m ping  
+
+
+PROGRAM 8
+mkdir -p ~/ansible-deploy  
+cd ~/ansible-deploy  
+nano deploy.yml  
+# Jenkins: Add "mvn clean package" under build  
+# Invoke Ansible Playbook post-build:
+# Playbook path: /home/user/ansible-deploy/deploy.yml
+# Inventory file: /etc/ansible/host
+
+
+PROGRAM 10
+mkdir maventest1  
+cd maventest1  
+mvn archetype:generate -DgroupId=com.dineshonjava -DartifactId=Javateam -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false  
+git init  
+git add .  
+
+
