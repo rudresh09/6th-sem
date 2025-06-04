@@ -1,0 +1,64 @@
+PROGRAM 2
+# Create Maven project using archetype
+mvn archetype:generate \
+  -DgroupId=com.program2.maven \
+  -DartifactId=program2-example-jar \
+  -DarchetypeArtifactId=maven-archetype-quickstart \
+  -DinteractiveMode=false
+
+# Navigate into project folder
+cd program2-example-jar
+
+# Build the Maven project
+mvn package
+
+# Run the Java application (assuming default App.java)
+java -cp target/program2-example-jar-1.0-SNAPSHOT.jar com.program2.maven.program2.App
+
+
+
+PROGRAM 5
+# Add Jenkins repository key and source
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+
+# Update package list and install Jenkins
+sudo apt update
+sudo apt install jenkins -y
+
+# Start Jenkins service
+sudo systemctl start jenkins
+sudo systemctl enable jenkins
+
+# Check Jenkins status
+sudo systemctl status jenkins
+
+# Access Jenkins
+# Open in browser: http://localhost:8080
+# Get initial admin password
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+
+
+PROGRAM 9
+# Create Maven project folder
+mkdir azuredevops-demo
+cd azuredevops-demo
+
+# Generate simple Maven HelloWorld project
+mvn archetype:generate \
+  -DgroupId=com.azure.devops \
+  -DartifactId=azure-demo \
+  -DarchetypeArtifactId=maven-archetype-quickstart \
+  -DinteractiveMode=false
+
+cd azure-demo
+
+# Initialize Git
+git init
+git add .
+git commit -m "Initial commit for Azure DevOps demo"
+
+# Link to GitHub repo
+git remote add origin https://github.com/yourusername/azure-demo.git
+git push -u origin master
